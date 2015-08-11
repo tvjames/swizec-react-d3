@@ -1,5 +1,5 @@
 require("babelify/polyfill");
-var React = require('react'),
+const React = require('react'),
     _ = require('lodash'),
     d3 = require('d3');
 

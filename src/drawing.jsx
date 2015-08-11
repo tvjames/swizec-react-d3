@@ -1,4 +1,4 @@
-var React = require('react'),
+const React = require('react'),
     d3 = require('d3');
 
 var Histogram = React.createClass({

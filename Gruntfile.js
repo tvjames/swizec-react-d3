@@ -15,14 +15,16 @@ module.exports = function (grunt) {
         },
         browserify: {
             options: {
+                // external: ["react", "d3", "lodash"],
                 transform: [
                     ['babelify', {
                         stage: 0,
                         optional: ["runtime", "es7.classProperties"],
                         ignore: /bower_components/
-                    }], 
-                    'reactify', 
-                    'debowerify'
+                    }],
+                    'browserify-shim'
+                    // 'reactify', 
+                    // 'debowerify'
                 ],
                 browserifyOptions: {
                     extensions: ['.jsx']
