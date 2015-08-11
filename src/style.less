@@ -1,0 +1,28 @@
+@import (inline) "../bower_components/bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    background-color: red;
+}
+
+.histogram {
+    .bar {
+        rect {
+            fill: steelblue;
+            shape-rendering: crispEdges;
+        } 
+        text {
+            fill: #fff;
+            font: 12px sans-serif;
+        }
+    } 
+    .axis {
+        path, line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        } 
+        text {
+            font: 10px sans-serif;
+        }
+    }
+}
