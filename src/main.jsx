@@ -1,19 +1,21 @@
-require("babelify/polyfill");
-const React = require('react'),
-    _ = require('lodash'),
-    d3 = require('d3');
+import 'babelify/polyfill';
+import React from 'react';
+import _ from'lodash';
+import d3 from 'd3';
 
-var drawing = require('./drawing');
+import {Histogram} from './drawing';
 
-var H1BGraph = React.createClass({
-    componentWillMount: function() {
+class H1BGraph extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {rawData: []};
+    }
+    componentWillMount() {
         this.loadRawData();
-    },
-    getInitialState: function() {
-        return {rawData: []};
-    },
+    }
     
-    loadRawData: function() {
+    loadRawData() {
         var dateFormat = d3.time.format("%m/%d/%Y");
         d3.csv(this.props.url)
             .row(function(d) {
@@ -39,9 +41,9 @@ var H1BGraph = React.createClass({
                     this.setState({rawData: rows});
                 }
             }.bind(this));
-    },
+    }
 
-    render: function () {
+    render() {
         if (!this.state.rawData.length) {
             return (<h2>Loading data about 81,000 H1B visas in the software industry</h2>);
         }
@@ -61,13 +63,13 @@ var H1BGraph = React.createClass({
             <div className="row">
                 <div className="col-md-12">
                     <svg width="700" height="500">
-                        <drawing.Histogram {...params} data={this.state.rawData} />
+                        <Histogram {...params} data={this.state.rawData} />
                     </svg>
                 </div>
             </div>
         ); 
     }
-});
+};
 
 React.render(
     <H1BGraph url="data/h1bs.csv" />,

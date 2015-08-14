@@ -141,6 +141,4 @@ class Axis extends React.Component {
     }
 }
 
-module.exports = {
-    Histogram: Histogram
-};
+export {Histogram as Histogram};
