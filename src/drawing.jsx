@@ -69,16 +69,21 @@ class HistogramBar extends React.Component {
         let translate = "translate(" + this.props.x + "," + this.props.y + ")",
             label = this.props.percent.toFixed(0)+'%';
 
-        if (this.props.percent < 1) {
-            label = this.props.percent.toFixed(2)+"%";
-        }
-
-        if (this.props.width < 20) {
-            label = label.replace("%", "");
-        }
         if (this.props.width < 10) { 
             label = "";
         }
+        if (this.props.percent < 1) {
+            label = this.props.percent.toFixed(2)+"%";
+            if (this.props.width < 30) {
+                label = label.replace("%", "");
+            }
+            if (this.props.width < 20) { 
+                label = "";
+            }
+        }
+
+        
+        
 
         return (
             <g transform={translate} className="bar"> 
