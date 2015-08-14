@@ -18,13 +18,13 @@ module.exports = function (grunt) {
                 // external: ["react", "d3", "lodash"],
                 transform: [
                     ['babelify', {
-                        stage: 0,
+                        stage: 1,
                         optional: ["runtime", "es7.classProperties"],
                         ignore: /bower_components/
                     }],
-                    'browserify-shim'
+                    'browserify-shim',
                     // 'reactify', 
-                    // 'debowerify'
+                    'debowerify'
                 ],
                 browserifyOptions: {
                     extensions: ['.jsx']
